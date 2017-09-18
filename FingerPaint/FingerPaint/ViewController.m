@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "LineSegment.h"
+#import "fingerView.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) IBOutlet fingerView *fingerView;
+
+
 
 @end
 
@@ -17,16 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-
-    
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

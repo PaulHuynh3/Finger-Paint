@@ -41,16 +41,41 @@
 
     UITouch *touch = touches.anyObject;
     CGPoint second = [touch previousLocationInView:self];
-    LineSegment *segment = [[LineSegment alloc]initWithFirstPoint:second secondPoint:second];
+    CGPoint first = [touch previousLocationInView:self];
+    NSLog(@"%d: %@, %@", __LINE__, NSStringFromCGPoint(first), NSStringFromCGPoint(second));
+    LineSegment *segment = [[LineSegment alloc]initWithFirstPoint:first secondPoint:second];
     [self.line addObject:segment];
     [self setNeedsDisplay];
 }
 
 #pragma mark - Drawing
 
+-(void)drawRect:(CGRect)rect {
 
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineWidth = 5.0;
+    path.lineCapStyle = kCGLineCapRound;
+    UIColor *blue = [UIColor blueColor];
+    [blue setStroke];
+    
+    //for every instance of linesegment instance in the array
+    for (LineSegment *segment in self.line){
+        //using the LineSegment's property's firstPoint, secondpoint
+        if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
+            [path moveToPoint:segment.firstPoint];
+            continue;
+        }
+        [path addLineToPoint:segment.firstPoint];
+        [path addLineToPoint:segment.secondPoint];
+    }
+    [path stroke];
+}
 
+-(void)clear{
+    [self.line removeAllObjects];
+    [self setNeedsDisplay];
 
+}
 
 
 
