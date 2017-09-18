@@ -13,6 +13,8 @@
 		DA4E02D91F6C847B00A10CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4E02D71F6C847B00A10CBA /* Main.storyboard */; };
 		DA4E02DB1F6C847B00A10CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4E02DA1F6C847B00A10CBA /* Assets.xcassets */; };
 		DA4E02DE1F6C847B00A10CBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4E02DC1F6C847B00A10CBA /* LaunchScreen.storyboard */; };
+		DADD03011F6F406900A26EB3 /* LineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = DADD03001F6F406900A26EB3 /* LineSegment.m */; };
+		DADD03071F6F46C300A26EB3 /* fingerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DADD03061F6F46C300A26EB3 /* fingerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		DA4E02DA1F6C847B00A10CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA4E02DD1F6C847B00A10CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4E02DF1F6C847B00A10CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADD02FF1F6F406900A26EB3 /* LineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineSegment.h; sourceTree = "<group>"; };
+		DADD03001F6F406900A26EB3 /* LineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineSegment.m; sourceTree = "<group>"; };
+		DADD03051F6F46C300A26EB3 /* fingerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fingerView.h; sourceTree = "<group>"; };
+		DADD03061F6F46C300A26EB3 /* fingerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fingerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +64,9 @@
 		DA4E02CD1F6C847B00A10CBA /* FingerPaint */ = {
 			isa = PBXGroup;
 			children = (
-				DA4E02D11F6C847B00A10CBA /* AppDelegate.h */,
-				DA4E02D21F6C847B00A10CBA /* AppDelegate.m */,
-				DA4E02D41F6C847B00A10CBA /* ViewController.h */,
-				DA4E02D51F6C847B00A10CBA /* ViewController.m */,
-				DA4E02D71F6C847B00A10CBA /* Main.storyboard */,
-				DA4E02DA1F6C847B00A10CBA /* Assets.xcassets */,
-				DA4E02DC1F6C847B00A10CBA /* LaunchScreen.storyboard */,
-				DA4E02DF1F6C847B00A10CBA /* Info.plist */,
+				DADD02FE1F6F403700A26EB3 /* View */,
+				DADD02FD1F6F403500A26EB3 /* Controller */,
+				DADD02FC1F6F403300A26EB3 /* Model */,
 				DA4E02CE1F6C847B00A10CBA /* Supporting Files */,
 			);
 			path = FingerPaint;
@@ -74,9 +75,42 @@
 		DA4E02CE1F6C847B00A10CBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA4E02D11F6C847B00A10CBA /* AppDelegate.h */,
+				DA4E02D21F6C847B00A10CBA /* AppDelegate.m */,
+				DA4E02DA1F6C847B00A10CBA /* Assets.xcassets */,
+				DA4E02DC1F6C847B00A10CBA /* LaunchScreen.storyboard */,
+				DA4E02DF1F6C847B00A10CBA /* Info.plist */,
 				DA4E02CF1F6C847B00A10CBA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DADD02FC1F6F403300A26EB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DADD02FF1F6F406900A26EB3 /* LineSegment.h */,
+				DADD03001F6F406900A26EB3 /* LineSegment.m */,
+				DADD03051F6F46C300A26EB3 /* fingerView.h */,
+				DADD03061F6F46C300A26EB3 /* fingerView.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DADD02FD1F6F403500A26EB3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA4E02D41F6C847B00A10CBA /* ViewController.h */,
+				DA4E02D51F6C847B00A10CBA /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		DADD02FE1F6F403700A26EB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA4E02D71F6C847B00A10CBA /* Main.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4E02D61F6C847B00A10CBA /* ViewController.m in Sources */,
+				DADD03071F6F46C300A26EB3 /* fingerView.m in Sources */,
 				DA4E02D31F6C847B00A10CBA /* AppDelegate.m in Sources */,
 				DA4E02D01F6C847B00A10CBA /* main.m in Sources */,
+				DADD03011F6F406900A26EB3 /* LineSegment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +347,7 @@
 				DA4E02E41F6C847B00A10CBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
