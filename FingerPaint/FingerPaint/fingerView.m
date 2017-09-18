@@ -17,50 +17,42 @@
 
 @implementation fingerView
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder{
-
-    if (self =[super initWithCoder:aDecoder]){
-    
-        _line = [[NSMutableArray alloc]init];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        _line = [NSMutableArray new];
     }
     return self;
 }
 
 #pragma mark - Touch Handling
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = touches.anyObject;
     CGPoint first = [touch previousLocationInView:self];
-    LineSegment *segment = [[LineSegment alloc]initWithFirstPoint:first secondPoint:first];
+    LineSegment *segment = [[LineSegment alloc] initWithFirstPoint:first secondPoint:first];
     [self.line addObject:segment];
     [self setNeedsDisplay];
 }
 
--(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = touches.anyObject;
-    CGPoint second = [touch previousLocationInView:self];
+    CGPoint second = [touch locationInView:self];
     CGPoint first = [touch previousLocationInView:self];
     NSLog(@"%d: %@, %@", __LINE__, NSStringFromCGPoint(first), NSStringFromCGPoint(second));
-    LineSegment *segment = [[LineSegment alloc]initWithFirstPoint:first secondPoint:second];
+    LineSegment *segment = [[LineSegment alloc] initWithFirstPoint:first secondPoint:second];
     [self.line addObject:segment];
     [self setNeedsDisplay];
 }
 
 #pragma mark - Drawing
 
--(void)drawRect:(CGRect)rect {
-
+- (void)drawRect:(CGRect)rect {
     UIBezierPath *path = [UIBezierPath bezierPath];
     path.lineWidth = 5.0;
     path.lineCapStyle = kCGLineCapRound;
     UIColor *blue = [UIColor blueColor];
-    [blue setStroke];
-    
-    //for every instance of linesegment instance in the array
-    for (LineSegment *segment in self.line){
-        //using the LineSegment's property's firstPoint, secondpoint
+    [green setStroke];
+    for (LineSegment *segment in self.line) {
         if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
             [path moveToPoint:segment.firstPoint];
             continue;
@@ -71,13 +63,10 @@
     [path stroke];
 }
 
--(void)clear{
+- (void)clear {
     [self.line removeAllObjects];
     [self setNeedsDisplay];
-
 }
-
-
 
 
 

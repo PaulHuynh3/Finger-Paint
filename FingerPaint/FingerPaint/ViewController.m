@@ -12,9 +12,8 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) IBOutlet fingerView *fingerView;
 
-
+@property (weak, nonatomic) IBOutlet fingerView *fingerView;
 
 @end
 
