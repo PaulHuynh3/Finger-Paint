@@ -51,7 +51,7 @@
     path.lineWidth = 5.0;
     path.lineCapStyle = kCGLineCapRound;
     UIColor *blue = [UIColor blueColor];
-    [green setStroke];
+    [blue setStroke];
     for (LineSegment *segment in self.line) {
         if (CGPointEqualToPoint(segment.firstPoint, segment.secondPoint)) {
             [path moveToPoint:segment.firstPoint];
